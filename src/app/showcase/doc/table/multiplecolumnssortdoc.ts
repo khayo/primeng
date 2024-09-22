@@ -38,10 +38,7 @@ import { ProductService } from '@service/productservice';
 export class MultipleColumnsSortDoc {
     products: Product[];
 
-    constructor(
-        private productService: ProductService,
-        private cd: ChangeDetectorRef
-    ) {}
+    constructor(private productService: ProductService, private cd: ChangeDetectorRef) {}
 
     loadDemoData() {
         this.productService.getProductsMini().then((data) => {
@@ -51,7 +48,7 @@ export class MultipleColumnsSortDoc {
     }
 
     code: Code = {
-        basic: `<p-table [value]="products1" [tableStyle]="{'min-width': '60rem'}">
+        basic: `<p-table [value]="products1" [tableStyle]="{'min-width': '60rem'}" sortMode="multiple">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="code" style="width:20%">
@@ -78,7 +75,7 @@ export class MultipleColumnsSortDoc {
     </ng-template>
 </p-table>`,
         html: `<div class="card">
-    <p-table [value]="products1" [tableStyle]="{'min-width': '60rem'}">
+    <p-table [value]="products1" [tableStyle]="{'min-width': '60rem'}" sortMode="multiple">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="code" style="width:20%">
